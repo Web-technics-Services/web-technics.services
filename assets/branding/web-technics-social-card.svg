@@ -1,0 +1,47 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#061217"/>
+  <circle cx="140" cy="96" r="220" fill="url(#paint0_radial)" fill-opacity="0.9"/>
+  <circle cx="1080" cy="90" r="180" fill="url(#paint1_radial)" fill-opacity="0.85"/>
+  <circle cx="1000" cy="580" r="260" fill="url(#paint2_radial)" fill-opacity="0.5"/>
+  <rect x="56" y="56" width="1088" height="518" rx="32" fill="url(#paint3_linear)" stroke="#1E4657"/>
+  <rect x="96" y="106" width="170" height="170" rx="28" fill="#0D2B35" stroke="#2B6677"/>
+  <path d="M139 236V145H162.4L184.1 180.7L206 145H229.5V236H205V190.4L184.1 223.9L163.2 190.4V236H139Z" fill="url(#paint4_linear)"/>
+  <path d="M367 186C367 237.5 332.5 272 280.5 272H248V100H280.5C332.5 100 367 134.5 367 186ZM291.8 245.3C323.6 245.3 344.7 223.9 344.7 186C344.7 148.1 323.6 126.7 291.8 126.7H273.2V245.3H291.8Z" fill="url(#paint5_linear)"/>
+  <text x="304" y="194" fill="#E9F4F5" font-family="Sora, Arial, sans-serif" font-size="74" font-weight="700" letter-spacing="2">WEB TECHNICS</text>
+  <text x="304" y="254" fill="#A9C2C7" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="600">Web design, development and SEO for growth-focused teams.</text>
+  <rect x="304" y="306" width="292" height="58" rx="29" fill="#0B1F27" stroke="#2E6A74"/>
+  <text x="338" y="344" fill="#BFFAF0" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="700">Businesses, NGOs, startups</text>
+  <rect x="620" y="306" width="238" height="58" rx="29" fill="#0B1F27" stroke="#536E7C"/>
+  <text x="654" y="344" fill="#E9F4F5" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="700">Fast, scalable delivery</text>
+  <rect x="882" y="306" width="216" height="58" rx="29" fill="#0B1F27" stroke="#8D6A3C"/>
+  <text x="919" y="344" fill="#FFE0B7" font-family="Manrope, Arial, sans-serif" font-size="22" font-weight="700">SEO built in</text>
+  <rect x="304" y="410" width="794" height="104" rx="22" fill="#091920" stroke="#1E4657"/>
+  <text x="340" y="452" fill="#E9F4F5" font-family="Sora, Arial, sans-serif" font-size="32" font-weight="700">Web Design Cambodia</text>
+  <text x="340" y="494" fill="#A9C2C7" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="600">E-Commerce Development  •  SEO Services  •  NGO Websites</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(140 96) rotate(90) scale(220)">
+      <stop stop-color="#3ED1BD"/>
+      <stop offset="1" stop-color="#3ED1BD" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1080 90) rotate(90) scale(180)">
+      <stop stop-color="#FFB55A"/>
+      <stop offset="1" stop-color="#FFB55A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="paint2_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1000 580) rotate(90) scale(260)">
+      <stop stop-color="#53A8FF"/>
+      <stop offset="1" stop-color="#53A8FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="paint3_linear" x1="88" y1="68" x2="1084" y2="564" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F2731"/>
+      <stop offset="1" stop-color="#0B1F27"/>
+    </linearGradient>
+    <linearGradient id="paint4_linear" x1="139" y1="145" x2="229.5" y2="236" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3ED1BD"/>
+      <stop offset="1" stop-color="#53A8FF"/>
+    </linearGradient>
+    <linearGradient id="paint5_linear" x1="248" y1="100" x2="367" y2="272" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3ED1BD"/>
+      <stop offset="1" stop-color="#FFB55A"/>
+    </linearGradient>
+  </defs>
+</svg>
