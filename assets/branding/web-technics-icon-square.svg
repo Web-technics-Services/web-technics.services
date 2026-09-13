@@ -1,0 +1,20 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Web Technics square icon">
+  <defs>
+    <linearGradient id="iconGrad" x1="92" y1="84" x2="420" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8AF3E4"/>
+      <stop offset="0.5" stop-color="#3ED1BD"/>
+      <stop offset="1" stop-color="#1F9E90"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="22" y="22" width="468" height="468" rx="84" fill="#0B1F27" stroke="#1E4657" stroke-width="8"/>
+
+  <path d="M104 116H148L192 300L256 176L320 300L364 116H408L328 388L256 276L184 388L104 116Z" fill="url(#iconGrad)"/>
+
+  <path d="M256 68V110M54 256H96M416 256H458M138 372L98 412M374 372L414 412" stroke="#72E8D9" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="256" cy="68" r="18" fill="#72E8D9"/>
+  <circle cx="54" cy="256" r="18" fill="#72E8D9"/>
+  <circle cx="458" cy="256" r="18" fill="#72E8D9"/>
+  <circle cx="98" cy="412" r="18" fill="#72E8D9"/>
+  <circle cx="414" cy="412" r="18" fill="#72E8D9"/>
+</svg>

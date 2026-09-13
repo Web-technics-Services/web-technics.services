@@ -1,0 +1,69 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Web Technics social preview card">
+  <rect width="1200" height="630" fill="#061217"/>
+  <circle cx="126" cy="74" r="230" fill="url(#glowBrand)" fill-opacity="0.9"/>
+  <circle cx="1088" cy="94" r="190" fill="url(#glowAccent)" fill-opacity="0.75"/>
+  <circle cx="1016" cy="570" r="280" fill="url(#glowBlue)" fill-opacity="0.35"/>
+  <rect x="40" y="40" width="1120" height="550" rx="36" fill="url(#panelFill)" stroke="#1E4657" stroke-width="2"/>
+  <rect x="76" y="76" width="1048" height="478" rx="30" fill="rgba(6,18,23,0.18)" stroke="rgba(169,194,199,0.08)"/>
+
+  <g transform="translate(92 118) scale(0.4453125)">
+    <rect x="22" y="22" width="468" height="468" rx="84" fill="#0B1F27" stroke="#1E4657" stroke-width="8"/>
+    <path d="M104 116H148L192 300L256 176L320 300L364 116H408L328 388L256 276L184 388L104 116Z" fill="url(#iconGrad)"/>
+    <path d="M256 68V110M54 256H96M416 256H458M138 372L98 412M374 372L414 412" stroke="#72E8D9" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="256" cy="68" r="18" fill="#72E8D9"/>
+    <circle cx="54" cy="256" r="18" fill="#72E8D9"/>
+    <circle cx="458" cy="256" r="18" fill="#72E8D9"/>
+    <circle cx="98" cy="412" r="18" fill="#72E8D9"/>
+    <circle cx="414" cy="412" r="18" fill="#72E8D9"/>
+  </g>
+
+  <rect x="336" y="104" width="286" height="44" rx="22" fill="#0B1F27" stroke="#285765"/>
+  <text x="368" y="132" fill="#BFFAF0" font-family="Manrope, Segoe UI, Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="1.4">UK-REGISTERED • CAMBODIA-BASED</text>
+
+  <text x="336" y="238" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="78" font-weight="800" letter-spacing="6" fill="#E9F4F5">WEB</text>
+  <text x="584" y="238" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="78" font-weight="700" letter-spacing="5" fill="#3ED1BD">TECHNICS</text>
+
+  <text x="336" y="292" fill="#A9C2C7" font-family="Manrope, Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">Web design, development and SEO</text>
+  <text x="336" y="330" fill="#A9C2C7" font-family="Manrope, Segoe UI, Arial, sans-serif" font-size="30" font-weight="700">for businesses, NGOs and founders.</text>
+
+  <g>
+    <rect x="336" y="376" width="306" height="60" rx="18" fill="#0B1F27" stroke="#2E6A74"/>
+    <text x="368" y="414" fill="#BFFAF0" font-family="Manrope, Segoe UI, Arial, sans-serif" font-size="20" font-weight="800">Businesses • NGOs • Startups</text>
+  </g>
+  <g>
+    <rect x="662" y="376" width="250" height="60" rx="18" fill="#0B1F27" stroke="#355D6B"/>
+    <text x="694" y="414" fill="#E9F4F5" font-family="Manrope, Segoe UI, Arial, sans-serif" font-size="20" font-weight="800">Fast, scalable delivery</text>
+  </g>
+  <g>
+    <rect x="932" y="376" width="134" height="60" rx="18" fill="#0B1F27" stroke="#8D6A3C"/>
+    <text x="964" y="414" fill="#FFE0B7" font-family="Manrope, Segoe UI, Arial, sans-serif" font-size="20" font-weight="800">SEO built in</text>
+  </g>
+
+  <rect x="336" y="460" width="730" height="92" rx="20" fill="#091920" stroke="#1E4657"/>
+  <text x="372" y="500" fill="#E9F4F5" font-family="Sora, Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Web Design Cambodia • E-Commerce • SEO</text>
+  <text x="372" y="533" fill="#A9C2C7" font-family="Manrope, Segoe UI, Arial, sans-serif" font-size="22" font-weight="700">NGO websites • Fast, search-ready delivery</text>
+
+  <defs>
+    <radialGradient id="glowBrand" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(126 74) rotate(90) scale(230)">
+      <stop stop-color="#3ED1BD"/>
+      <stop offset="1" stop-color="#3ED1BD" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowAccent" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1088 94) rotate(90) scale(190)">
+      <stop stop-color="#FFB55A"/>
+      <stop offset="1" stop-color="#FFB55A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1016 570) rotate(90) scale(280)">
+      <stop stop-color="#53A8FF"/>
+      <stop offset="1" stop-color="#53A8FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="panelFill" x1="72" y1="62" x2="1100" y2="566" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F2731"/>
+      <stop offset="1" stop-color="#0B1F27"/>
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="92" y1="84" x2="420" y2="430" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8AF3E4"/>
+      <stop offset="0.5" stop-color="#3ED1BD"/>
+      <stop offset="1" stop-color="#1F9E90"/>
+    </linearGradient>
+  </defs>
+</svg>

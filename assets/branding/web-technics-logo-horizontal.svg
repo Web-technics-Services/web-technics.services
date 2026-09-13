@@ -1,0 +1,27 @@
+<svg width="980" height="260" viewBox="0 0 980 260" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Web Technics logo horizontal">
+  <defs>
+    <linearGradient id="wtGrad" x1="32" y1="24" x2="162" y2="186" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8AF3E4"/>
+      <stop offset="0.5" stop-color="#3ED1BD"/>
+      <stop offset="1" stop-color="#1F9E90"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(24 24)">
+    <rect x="0.75" y="0.75" width="183.5" height="183.5" rx="28" fill="#0B1F27" stroke="#1E4657" stroke-width="1.5"/>
+
+    <path d="M32 34H49L68 110L92 59L116 110L135 34H152L122 152L92 102L62 152L32 34Z" fill="url(#wtGrad)"/>
+
+    <path d="M92 17V36M15 92H34M151 92H170M44 149L28 165M140 149L156 165" stroke="#72E8D9" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="92" cy="17" r="6" fill="#72E8D9"/>
+    <circle cx="15" cy="92" r="6" fill="#72E8D9"/>
+    <circle cx="170" cy="92" r="6" fill="#72E8D9"/>
+    <circle cx="28" cy="165" r="6" fill="#72E8D9"/>
+    <circle cx="156" cy="165" r="6" fill="#72E8D9"/>
+  </g>
+
+  <g transform="translate(245 88)">
+    <text x="0" y="58" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="72" font-weight="800" letter-spacing="6" fill="#E9F4F5">WEB</text>
+    <text x="228" y="58" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="5" fill="#3ED1BD">TECHNICS</text>
+  </g>
+</svg>
