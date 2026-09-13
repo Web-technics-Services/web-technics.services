@@ -277,6 +277,17 @@ function checkImages(page, file, add) {
     if (index === 0 && image.loading === 'lazy') {
       add('warning', 'image-lazy', file, `Above-the-fold <img> should not be lazy: ${label}`);
     }
+    // Third-party images can disappear without warning and cost an extra
+    // connection. Self-hosting keeps both reliability and licensing in hand.
+    if (/^https?:\/\//i.test(image.src || '')) {
+      const host = (image.src.match(/^https?:\/\/([^/]+)/i) || [])[1];
+      add(
+        'warning',
+        'image-external',
+        file,
+        `<img> is hotlinked from ${host}; self-host it so it cannot break or change: ${label}`,
+      );
+    }
   });
 }
 
