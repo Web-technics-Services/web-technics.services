@@ -42,6 +42,15 @@ document.querySelectorAll("[data-year]").forEach((label) => {
   label.textContent = new Date().getFullYear();
 });
 
+const contactEmail = String.fromCharCode(
+  105, 110, 102, 111, 64, 119, 101, 98, 45, 116, 101, 99, 104, 110, 105, 99, 115, 46, 115, 101, 114, 118, 105, 99, 101, 115
+);
+
+document.querySelectorAll("[data-email-link]").forEach((link) => {
+  link.href = `mailto:${contactEmail}`;
+  link.textContent = contactEmail;
+});
+
 const progressBar = document.createElement("div");
 progressBar.id = "scroll-progress";
 progressBar.setAttribute("aria-hidden", "true");
@@ -138,6 +147,6 @@ if (contactForm) {
     const body = encodeURIComponent(
       `Name: ${data.get("name") || ""}\nEmail: ${data.get("email") || ""}\nCompany: ${data.get("company") || ""}\nProject type: ${data.get("project") || ""}\nTimeline: ${data.get("timeline") || ""}\n\nProject brief:\n${data.get("message") || ""}`
     );
-    window.location.href = `mailto:info@web-technics.services?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
   });
 }
