@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /server-status.html
+Disallow: /server-status.php
 
-Sitemap: https://web-technics.services/sitemap.xml
+Sitemap: https://web-technics.com/sitemap.xml
