@@ -5,6 +5,10 @@
  * describes *what* to measure, and queues events until consent is granted, so
  * nothing is lost between page load and the visitor accepting analytics.
  *
+ * The measurement ID is read from consent.js rather than hardcoded, so this
+ * file is identical across web-technics.services and web-technics.com even
+ * though they report into different GA4 properties.
+ *
  * Events are attached with delegation on a single passive listener, so adding
  * tracking costs no measurable work on the main thread.
  */
@@ -13,8 +17,20 @@
   /** @type {Array<[string, Record<string, unknown>]>} */
   const queue = [];
 
-  const analyticsReady = () =>
-    typeof window.gtag === 'function' && window[`ga-disable-G-MMMGPHD62R`] !== true;
+  const measurementId = () =>
+    window.webTechnicsMeasurementId ||
+    ((document.querySelector('script[data-google-analytics]') || {}).dataset || {})
+      .googleAnalytics ||
+    null;
+
+  // Resolved on every call: consent.js may set the ID after this script runs,
+  // and a later rejection must be observed rather than cached away.
+  const disabled = () => {
+    const id = measurementId();
+    return Boolean(id && window[`ga-disable-${id}`] === true);
+  };
+
+  const analyticsReady = () => typeof window.gtag === 'function' && !disabled();
 
   /**
    * Send a GA4 event, or hold it until analytics consent arrives.

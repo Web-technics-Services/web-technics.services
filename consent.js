@@ -1,5 +1,7 @@
 (() => {
   const measurementId = "G-MMMGPHD62R";
+  // Published so analytics.js can gate on the same property without hardcoding it.
+  window.webTechnicsMeasurementId = measurementId;
   const storageKey = "webTechnicsAnalyticsConsent";
   const consentVersion = 1;
   const consentLifetime = 180 * 24 * 60 * 60 * 1000;
