@@ -15,19 +15,26 @@ if (menuToggle && navLinks) {
   });
 }
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-        observer.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.18 }
-);
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const revealElements = document.querySelectorAll(".reveal");
 
-document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+if (reducedMotion || !("IntersectionObserver" in window)) {
+  revealElements.forEach((element) => element.classList.add("show"));
+} else {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.18 }
+  );
+
+  revealElements.forEach((element) => observer.observe(element));
+}
 
 const yearLabel = document.querySelector("[data-year]");
 if (yearLabel) {
@@ -56,8 +63,54 @@ window.addEventListener("scroll", updateScrollUI, { passive: true });
 updateScrollUI();
 
 toTopButton.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
 });
+
+const getContactEmail = () => ["info", "web-technics.services"].join("@");
+
+document.querySelectorAll(".email-link").forEach((link) => {
+  const address = [link.dataset.emailUser, link.dataset.emailDomain].join("@");
+  link.href = `mailto:${address}`;
+  link.textContent = address;
+});
+
+const packageForm = document.querySelector("#package-enquiry-form");
+
+if (packageForm) {
+  const packageSelect = packageForm.elements.package;
+  const requestedPackage = new URLSearchParams(window.location.search).get("package");
+  const packageMap = {
+    starter: "Starter Website",
+    kampot: "Kampot Landing Page",
+    hospitality: "Hospitality & Booking Website",
+    visibility: "Local Visibility Setup",
+    care: "Website Care Plan"
+  };
+
+  if (requestedPackage && packageMap[requestedPackage]) {
+    packageSelect.value = packageMap[requestedPackage];
+  }
+
+  packageForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(packageForm);
+    const selectedPackage = data.get("package");
+    const subject = `Package enquiry: ${selectedPackage}`;
+    const body = [
+      `Name: ${data.get("name")}`,
+      `Email: ${data.get("email")}`,
+      `Package: ${selectedPackage}`,
+      `Preferred launch: ${data.get("timeline") || "Not specified"}`,
+      `Current website: ${data.get("website") || "None"}`,
+      `Primary customer action: ${data.get("goal") || "Not specified"}`,
+      "",
+      "Project details:",
+      data.get("message")
+    ].join("\n");
+
+    window.location.href = `mailto:${getContactEmail()}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}
 
 const countUp = (element) => {
   const target = Number(element.dataset.count || 0);
