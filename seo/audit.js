@@ -9,7 +9,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { routes, disallow } = require('./config');
+const { routes, disallow, movedRoutes } = require('./config');
 
 const TITLE_MIN = 50;
 const TITLE_MAX = 60;
@@ -291,6 +291,17 @@ function checkLinks(page, file, rootDir, existingFiles, add) {
       ? cleanPath.slice(1)
       : path.posix.join(path.posix.dirname(file), cleanPath);
     const resolved = target === '' || target.endsWith('/') ? `${target}index.html` : target;
+
+    const moved = movedRoutes[`/${resolved}`];
+    if (moved) {
+      add(
+        'error',
+        'moved-route',
+        file,
+        `Link points at /${resolved}, which moved to ${moved}. Use the absolute URL so the link equity follows the content.`,
+      );
+      continue;
+    }
 
     if (!existingFiles.has(resolved) && !fs.existsSync(path.join(rootDir, resolved))) {
       add('error', 'broken-link', file, `Internal link has no target on disk: ${href}`);

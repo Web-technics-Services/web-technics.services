@@ -161,3 +161,25 @@ test('the site passes its own audit', () => {
     []
   );
 });
+
+test('moved routes become permanent redirects, never 302s or 404s', () => {
+  const { generateNginx, generateApache } = require('./redirects');
+  const { movedRoutes } = require('./config');
+  const nginx = generateNginx();
+
+  for (const [from, to] of Object.entries(movedRoutes)) {
+    assert.match(nginx, new RegExp(`location = ${from.replace(/[.]/g, '\\.')} \\{`));
+    assert.ok(nginx.includes(`return 301 ${to};`), `${from} must 301 to ${to}`);
+  }
+
+  assert.ok(!/return 302/.test(nginx), 'a temporary redirect would not transfer ranking signals');
+  assert.match(generateApache(), /^Redirect 301 /m);
+});
+
+test('no page still links to a route that moved to the sibling site', () => {
+  const { movedRoutes } = require('./config');
+  const result = audit({ rootDir });
+  const stale = result.findings.filter((finding) => finding.rule === 'moved-route');
+  assert.deepStrictEqual(stale.map((finding) => finding.message), []);
+  assert.ok(Object.keys(movedRoutes).length > 0);
+});

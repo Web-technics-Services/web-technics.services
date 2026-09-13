@@ -5,13 +5,15 @@
  *   node seo/build.js audit            Report SEO problems (exit 1 on error).
  *   node seo/build.js sitemap          Regenerate sitemap.xml.
  *   node seo/build.js robots           Regenerate robots.txt for SEO_ENV.
- *   node seo/build.js build            Sitemap + robots, then audit.
+ *   node seo/build.js redirects        Regenerate nginx rules for moved routes.
+ *   node seo/build.js build            Sitemap + robots + redirects, then audit.
  */
 
 const path = require('path');
 const { audit, formatReport } = require('./audit');
 const { writeSitemap } = require('./sitemap');
 const { writeRobots, resolveEnvironment } = require('./robots');
+const { writeRedirects } = require('./redirects');
 
 const rootDir = path.resolve(__dirname, '..');
 
@@ -43,9 +45,16 @@ const commands = {
     return 0;
   },
 
+  redirects() {
+    const { count } = writeRedirects(rootDir);
+    console.log(`nginx/moved-routes.conf written with ${count} redirect(s).`);
+    return 0;
+  },
+
   build() {
     commands.sitemap();
     commands.robots();
+    commands.redirects();
     return commands.audit();
   },
 };

@@ -51,10 +51,28 @@ const site = {
 };
 
 /**
- * Domains that mirror this site. They must 301 to the canonical host rather
- * than serve duplicate indexable content.
+ * Sibling properties that are NOT mirrors. Each owns a distinct market and
+ * keyword set, so they self-canonicalise and must never duplicate our copy.
  */
-const mirrorDomains = ['https://web-technics.com'];
+const siblingSites = [
+  {
+    origin: 'https://web-technics.com',
+    owns: 'Cambodia local market pages (web design, e-commerce, SEO, NGO, Kampot).',
+  },
+];
+
+/**
+ * Routes this site no longer serves. The edge 301s them to the new owner so
+ * the accumulated ranking signals transfer instead of being dropped.
+ * The audit fails if any page still links to a moved path on this origin.
+ */
+const movedRoutes = {
+  '/web-design-cambodia.html': 'https://web-technics.com/web-design-cambodia.html',
+  '/ecommerce-development-cambodia.html':
+    'https://web-technics.com/ecommerce-development-cambodia.html',
+  '/seo-services-cambodia.html': 'https://web-technics.com/seo-services-cambodia.html',
+  '/ngo-web-design-cambodia.html': 'https://web-technics.com/ngo-web-design-cambodia.html',
+};
 
 /** @type {RouteSeo[]} */
 const routes = [
@@ -132,82 +150,6 @@ const routes = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Contact' }],
   },
   {
-    path: '/web-design-cambodia.html',
-    file: 'web-design-cambodia.html',
-    title: 'Web Design Cambodia | Business Websites | Web Technics',
-    description:
-      'Web design Cambodia services from Web Technics: professional business websites built for speed, credibility, search visibility and a steady lead flow.',
-    primaryKeyword: 'web design cambodia',
-    secondaryKeywords: [
-      'business website cambodia',
-      'website designers cambodia',
-      'professional website cambodia',
-    ],
-    ogDescription:
-      'Professional business websites for companies, founders, and local brands in Cambodia.',
-    changefreq: 'monthly',
-    priority: 0.8,
-    breadcrumbs: [
-      { name: 'Home', url: '/' },
-      { name: 'Capabilities', url: '/services.html' },
-      { name: 'Web Design Cambodia' },
-    ],
-  },
-  {
-    path: '/ecommerce-development-cambodia.html',
-    file: 'ecommerce-development-cambodia.html',
-    title: 'E-Commerce Development Cambodia | Web Technics Studio',
-    description:
-      'E-commerce development Cambodia services from Web Technics for online stores, product catalogs, checkout UX and storefronts that scale without friction.',
-    primaryKeyword: 'ecommerce development cambodia',
-    secondaryKeywords: ['online store cambodia', 'ecommerce website cambodia', 'checkout ux'],
-    ogDescription:
-      'Online stores built for smoother buying journeys, clearer catalogs, and stronger conversion performance.',
-    changefreq: 'monthly',
-    priority: 0.8,
-    breadcrumbs: [
-      { name: 'Home', url: '/' },
-      { name: 'Capabilities', url: '/services.html' },
-      { name: 'E-Commerce Development Cambodia' },
-    ],
-  },
-  {
-    path: '/seo-services-cambodia.html',
-    file: 'seo-services-cambodia.html',
-    title: 'SEO Services Cambodia | Technical SEO | Web Technics',
-    description:
-      'SEO services Cambodia from Web Technics covering technical SEO, on-page structure, content planning, Core Web Vitals, site speed and long-term growth.',
-    primaryKeyword: 'seo services cambodia',
-    secondaryKeywords: ['technical seo cambodia', 'seo audit', 'organic growth'],
-    ogDescription:
-      'Technical SEO, content structure, site speed, and ranking-focused improvements for growth-ready websites.',
-    changefreq: 'monthly',
-    priority: 0.8,
-    breadcrumbs: [
-      { name: 'Home', url: '/' },
-      { name: 'Capabilities', url: '/services.html' },
-      { name: 'SEO Services Cambodia' },
-    ],
-  },
-  {
-    path: '/ngo-web-design-cambodia.html',
-    file: 'ngo-web-design-cambodia.html',
-    title: 'NGO Web Design Cambodia | Nonprofit Sites | Web Technics',
-    description:
-      'NGO web design Cambodia services from Web Technics for nonprofits, community organizations and impact-focused teams that need accessible, donor-ready sites.',
-    primaryKeyword: 'ngo web design cambodia',
-    secondaryKeywords: ['nonprofit website cambodia', 'charity web design', 'accessible websites'],
-    ogDescription:
-      'Accessible, content-led websites for NGOs, nonprofits, and community projects.',
-    changefreq: 'monthly',
-    priority: 0.8,
-    breadcrumbs: [
-      { name: 'Home', url: '/' },
-      { name: 'Capabilities', url: '/services.html' },
-      { name: 'NGO Web Design Cambodia' },
-    ],
-  },
-  {
     path: '/privacy.html',
     file: 'privacy.html',
     title: 'Privacy Policy | How Web Technics Handles Your Data',
@@ -233,4 +175,4 @@ const routes = [
 /** Paths that must never be crawled, in any environment. */
 const disallow = ['/server-status.html', '/server-status.php'];
 
-module.exports = { site, routes, disallow, mirrorDomains };
+module.exports = { site, routes, disallow, siblingSites, movedRoutes };
