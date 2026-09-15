@@ -1,0 +1,31 @@
+name: SEO
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  audit:
+    name: SEO audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The sitemap derives lastmod from commit dates.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify the pages match seo/config.js
+        run: node seo/apply.js --check
+
+      - name: Test
+        run: node --test seo/test.js
+
+      - name: Audit
+        env:
+          SEO_ENV: production
+        run: node seo/build.js audit
