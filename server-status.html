@@ -3,13 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Server Status | Web Technics</title>
-  <meta name="description" content="Internal infrastructure dashboard for Web Technics showing uptime, load, performance metrics, technology stack, and security posture.">
-  <meta name="robots" content="noindex, follow">
-  <link rel="canonical" href="https://web-technics.services/server-status.php">
+  <title>System Status | Web Technics</title>
+  <meta name="description" content="Web Technics system status information. Operational details for active incidents are shared directly with affected clients through their usual support channel.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://web-technics.services/server-status.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Web Technics">
+  <meta property="og:locale" content="en">
+  <meta property="og:title" content="System Status | Web Technics">
+  <meta property="og:description" content="Web Technics system status information. Operational details for active incidents are shared directly with affected clients through their usual support channel.">
+  <meta property="og:url" content="https://web-technics.services/server-status.html">
+  <meta property="og:image" content="https://web-technics.services/assets/branding/web-technics-social-card.svg">
+  <meta property="og:image:alt" content="Web Technics social preview card for web design, development, and SEO services">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="System Status | Web Technics">
+  <meta name="twitter:description" content="Web Technics system status information. Operational details for active incidents are shared directly with affected clients through their usual support channel.">
+  <meta name="twitter:image" content="https://web-technics.services/assets/branding/web-technics-social-card.svg">
+  <meta name="twitter:image:alt" content="Web Technics social preview card for web design, development, and SEO services">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"></noscript>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/svg+xml" href="assets/branding/web-technics-icon-favicon.svg">
 </head>
@@ -17,7 +32,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="Web Technics home">
-        <img class="brand-logo" src="assets/branding/web-technics-logo-horizontal.svg" alt="Web Technics logo">
+        <img class="brand-logo" src="assets/branding/web-technics-logo-horizontal.svg" alt="Web Technics logo" width="196" height="52" decoding="async" fetchpriority="high">
       </a>
       <button class="menu-toggle" aria-expanded="false" aria-label="Open menu">Menu</button>
       <nav class="nav-links" aria-label="Primary">
@@ -198,7 +213,7 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <p class="footer-signature"><img class="footer-logo" src="assets/branding/web-technics-icon-favicon.svg" alt="Web Technics icon">@<span data-year></span> Web-technics services.</p>
+      <p class="footer-signature"><img class="footer-logo" src="assets/branding/web-technics-icon-favicon.svg" alt="Web Technics icon" width="32" height="32" decoding="async" loading="lazy">@<span data-year></span> Web-technics services.</p>
       <p>Server Status</p>
     </div>
   </footer>
@@ -209,6 +224,6 @@
       statusTime.textContent = new Date().toLocaleString();
     }
   </script>
-  <script src="app.js"></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
