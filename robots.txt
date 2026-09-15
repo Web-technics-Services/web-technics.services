@@ -4,20 +4,4 @@ Allow: /
 Disallow: /server-status.html
 Disallow: /server-status.php
 
-# Crawl-heavy bots with no referral value.
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
-
-User-agent: DotBot
-Disallow: /
-
-User-agent: PetalBot
-Disallow: /
-
-Sitemap: https://web-technics.services/sitemap.xml
+Sitemap: https://web-technics.com/sitemap.xml
