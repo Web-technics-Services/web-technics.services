@@ -57,7 +57,7 @@ const site = {
 const siblingSites = [
   {
     origin: 'https://web-technics.com',
-    owns: 'Cambodia local market pages (web design, e-commerce, SEO, NGO, Kampot).',
+    owns: 'Cambodia local market pages (web design, e-commerce, SEO, and NGO services).',
   },
 ];
 
@@ -104,6 +104,21 @@ const routes = [
     changefreq: 'monthly',
     priority: 0.9,
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Capabilities' }],
+  },
+  {
+    path: '/kampot-landing-page.html',
+    file: 'kampot-landing-page.html',
+    title: 'Kampot Landing Page for Local Promotions | Web Technics',
+    description:
+      'A conversion-focused Kampot landing page for an event, tour, property, promotion, or local service, with local search targeting and tracked contact actions.',
+    primaryKeyword: 'kampot landing page',
+    secondaryKeywords: ['kampot promotion website', 'local campaign landing page'],
+    ogTitle: 'Kampot Landing Page for Local Promotions | Web Technics',
+    ogDescription:
+      'One focused page, one conversion goal, local search targeting, and trackable customer actions.',
+    changefreq: 'monthly',
+    priority: 0.8,
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Kampot Landing Page' }],
   },
   {
     path: '/portfolio.html',

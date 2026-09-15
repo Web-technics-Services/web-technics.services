@@ -2,26 +2,23 @@ const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
 if (menuToggle && navLinks) {
-  const closeMenu = () => {
-    navLinks.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-  };
-
   menuToggle.addEventListener("click", () => {
     const isOpen = navLinks.classList.toggle("open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  navLinks.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeMenu();
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
   });
 }
 
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealElements = document.querySelectorAll(".reveal");
 
-if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+if (reducedMotion || !("IntersectionObserver" in window)) {
   revealElements.forEach((element) => element.classList.add("show"));
 } else {
   const observer = new IntersectionObserver(
@@ -33,120 +30,160 @@ if (prefersReducedMotion || !("IntersectionObserver" in window)) {
         }
       });
     },
-    { threshold: 0.12 }
+    { threshold: 0.18 }
   );
+
   revealElements.forEach((element) => observer.observe(element));
 }
 
-document.querySelectorAll("[data-year]").forEach((label) => {
-  label.textContent = new Date().getFullYear();
-});
-
-const contactEmail = String.fromCharCode(
-  105, 110, 102, 111, 64, 119, 101, 98, 45, 116, 101, 99, 104, 110, 105, 99, 115, 46, 115, 101, 114, 118, 105, 99, 101, 115
-);
-
-document.querySelectorAll("[data-email-link]").forEach((link) => {
-  link.href = `mailto:${contactEmail}`;
-  link.textContent = contactEmail;
-});
+const yearLabel = document.querySelector("[data-year]");
+if (yearLabel) {
+  yearLabel.textContent = new Date().getFullYear();
+}
 
 const progressBar = document.createElement("div");
 progressBar.id = "scroll-progress";
-progressBar.setAttribute("aria-hidden", "true");
 document.body.appendChild(progressBar);
 
 const toTopButton = document.createElement("button");
 toTopButton.className = "to-top";
-toTopButton.type = "button";
-toTopButton.setAttribute("aria-label", "Back to top");
+toTopButton.setAttribute("aria-label", "Scroll to top");
 toTopButton.textContent = "↑";
 document.body.appendChild(toTopButton);
 
 const updateScrollUI = () => {
   const scrollTop = window.scrollY;
   const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-  progressBar.style.width = `${scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0}%`;
-  toTopButton.classList.toggle("show", scrollTop > 500);
+  const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+  progressBar.style.width = `${progress}%`;
+  toTopButton.classList.toggle("show", scrollTop > 420);
 };
 
 window.addEventListener("scroll", updateScrollUI, { passive: true });
 updateScrollUI();
+
 toTopButton.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+  window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
 });
 
-const filterButtons = document.querySelectorAll(".filter-chip[data-filter-group]");
+const getContactEmail = () => ["info", "web-technics.services"].join("@");
+
+document.querySelectorAll(".email-link").forEach((link) => {
+  const address = [link.dataset.emailUser, link.dataset.emailDomain].join("@");
+  link.href = `mailto:${address}`;
+  link.textContent = address;
+});
+
+const packageForm = document.querySelector("#package-enquiry-form");
+
+if (packageForm) {
+  const packageSelect = packageForm.elements.package;
+  const requestedPackage = new URLSearchParams(window.location.search).get("package");
+  const packageMap = {
+    starter: "Starter Website",
+    kampot: "Kampot Landing Page",
+    hospitality: "Hospitality & Booking Website",
+    visibility: "Local Visibility Setup",
+    care: "Website Care Plan"
+  };
+
+  if (requestedPackage && packageMap[requestedPackage]) {
+    packageSelect.value = packageMap[requestedPackage];
+  }
+
+  packageForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(packageForm);
+    const selectedPackage = data.get("package");
+    const subject = `Package enquiry: ${selectedPackage}`;
+    const body = [
+      `Name: ${data.get("name")}`,
+      `Email: ${data.get("email")}`,
+      `Package: ${selectedPackage}`,
+      `Preferred launch: ${data.get("timeline") || "Not specified"}`,
+      `Current website: ${data.get("website") || "None"}`,
+      `Primary customer action: ${data.get("goal") || "Not specified"}`,
+      "",
+      "Project details:",
+      data.get("message")
+    ].join("\n");
+
+    window.location.href = `mailto:${getContactEmail()}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+}
+
+const countUp = (element) => {
+  const target = Number(element.dataset.count || 0);
+  const suffix = element.dataset.suffix || "";
+  const duration = 1300;
+  const start = performance.now();
+
+  const frame = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const value = Math.floor(target * eased);
+    element.textContent = `${value}${suffix}`;
+    if (progress < 1) {
+      requestAnimationFrame(frame);
+    }
+  };
+
+  requestAnimationFrame(frame);
+};
+
+const statObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        countUp(entry.target);
+        statObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.6 }
+);
+
+document.querySelectorAll("[data-count]").forEach((counter) => statObserver.observe(counter));
+
+const filterButtons = document.querySelectorAll(".filter-chip");
 const portfolioCards = document.querySelectorAll("[data-portfolio-item]");
 const portfolioSearch = document.querySelector(".portfolio-search");
 const portfolioEmpty = document.querySelector(".portfolio-empty");
-const portfolioCount = document.querySelector("[data-result-count]");
-const portfolioReset = document.querySelector("[data-filter-reset]");
 
 if (portfolioCards.length) {
-  const activeFilters = { category: "all", technology: "all", region: "all" };
+  let activeCategory = "all";
 
   const applyPortfolioFilters = () => {
     const searchTerm = (portfolioSearch?.value || "").trim().toLowerCase();
     let visibleCount = 0;
 
     portfolioCards.forEach((card) => {
-      const categoryMatch = activeFilters.category === "all" || card.dataset.category === activeFilters.category;
-      const technologyMatch = activeFilters.technology === "all" || (card.dataset.technology || "").split(" ").includes(activeFilters.technology);
-      const regionMatch = activeFilters.region === "all" || card.dataset.region === activeFilters.region;
-      const searchMatch = (card.dataset.search || "").toLowerCase().includes(searchTerm);
-      const isVisible = categoryMatch && technologyMatch && regionMatch && searchMatch;
-      card.classList.toggle("is-hidden", !isVisible);
-      if (isVisible) visibleCount += 1;
+      const category = card.dataset.category || "other";
+      const searchable = card.dataset.search || "";
+      const categoryMatch = activeCategory === "all" || category === activeCategory;
+      const searchMatch = searchable.includes(searchTerm);
+      const show = categoryMatch && searchMatch;
+      card.classList.toggle("is-hidden", !show);
+      if (show) visibleCount += 1;
     });
 
-    portfolioEmpty?.classList.toggle("show", visibleCount === 0);
-    if (portfolioCount) {
-      portfolioCount.textContent = `${visibleCount} ${visibleCount === 1 ? "project" : "projects"}`;
+    if (portfolioEmpty) {
+      portfolioEmpty.classList.toggle("show", visibleCount === 0);
     }
   };
 
   filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const group = button.dataset.filterGroup;
-      filterButtons.forEach((chip) => {
-        if (chip.dataset.filterGroup !== group) return;
-        chip.classList.remove("active");
-        chip.setAttribute("aria-pressed", "false");
-      });
+      filterButtons.forEach((chip) => chip.classList.remove("active"));
       button.classList.add("active");
-      button.setAttribute("aria-pressed", "true");
-      activeFilters[group] = button.dataset.filter || "all";
+      activeCategory = button.dataset.filter || "all";
       applyPortfolioFilters();
     });
   });
 
-  portfolioSearch?.addEventListener("input", applyPortfolioFilters);
-  portfolioReset?.addEventListener("click", () => {
-    Object.keys(activeFilters).forEach((group) => {
-      activeFilters[group] = "all";
-      const buttons = document.querySelectorAll(`[data-filter-group="${group}"]`);
-      buttons.forEach((button) => {
-        const isAll = button.dataset.filter === "all";
-        button.classList.toggle("active", isAll);
-        button.setAttribute("aria-pressed", String(isAll));
-      });
-    });
-    if (portfolioSearch) portfolioSearch.value = "";
-    applyPortfolioFilters();
-  });
-  applyPortfolioFilters();
-}
+  if (portfolioSearch) {
+    portfolioSearch.addEventListener("input", applyPortfolioFilters);
+  }
 
-const contactForm = document.querySelector("[data-contact-form]");
-if (contactForm) {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const data = new FormData(contactForm);
-    const subject = encodeURIComponent(`Project enquiry from ${data.get("name") || "website visitor"}`);
-    const body = encodeURIComponent(
-      `Name: ${data.get("name") || ""}\nEmail: ${data.get("email") || ""}\nCompany: ${data.get("company") || ""}\nProject type: ${data.get("project") || ""}\nTimeline: ${data.get("timeline") || ""}\n\nProject brief:\n${data.get("message") || ""}`
-    );
-    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-  });
+  applyPortfolioFilters();
 }

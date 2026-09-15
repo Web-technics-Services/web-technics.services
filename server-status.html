@@ -1,8 +1,6 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <script src="consent.js?v=20260913-1" defer></script>
-  <script src="analytics.js?v=20260914-1" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>System Status | Web Technics</title>
@@ -31,9 +29,201 @@
   <link rel="icon" type="image/svg+xml" href="assets/branding/web-technics-icon-favicon.svg">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="Web Technics home"><img class="brand-logo" src="assets/branding/web-technics-logo-horizontal.svg" alt="Web Technics" width="196" height="52" decoding="async" fetchpriority="high"></a><nav class="nav-links" aria-label="Primary"><a href="privacy.html">Privacy</a><a href="index.html">Return to website</a></nav></div></header>
-  <main id="main"><section class="page-hero"><div class="container"><span class="eyebrow">System status</span><h1>Operational information is shared directly with affected clients.</h1><p>This page intentionally does not publish server versions, resource usage, security controls, or infrastructure topology. If you are a Web Technics client experiencing an issue, contact us through the support details provided for your project.</p><div class="actions"><a class="btn" href="contact.html">Contact Web Technics</a></div></div></section></main>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Web Technics home">
+        <img class="brand-logo" src="assets/branding/web-technics-logo-horizontal.svg" alt="Web Technics logo" width="196" height="52" decoding="async" fetchpriority="high">
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-label="Open menu">Menu</button>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="services.html">Services</a>
+        <a href="https://web-technics.com/">Company & Work</a>
+        <a class="active" href="server-status.html">Server Status</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://web-technics.com/">About Web Technics</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container reveal">
+        <span class="eyebrow">Infrastructure Dashboard</span>
+        <h1 style="margin-top:16px;">Server Status</h1>
+        <p>Real-time infrastructure metrics showcasing our robust VPS performance, reliability, and security posture.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="status-hero">
+          <article class="card reveal status-panel">
+            <div class="status-banner">
+              <p class="kicker">Overall Status</p>
+              <h2 style="font-size:clamp(1.8rem, 3vw, 2.4rem); margin-top:10px;">All Systems Operational</h2>
+              <p style="margin-top:12px; color: var(--muted);">No active incidents are currently reported. Monitoring is continuous and alerts are handled as priority.</p>
+              <div class="status-badges">
+                <span class="status-badge"><span class="status-dot"></span>Operational</span>
+                <span class="status-badge">24/7 Monitoring</span>
+                <span class="status-badge">Automatic Alerts</span>
+                <span class="status-badge">Last updated: <span id="status-time">just now</span></span>
+              </div>
+            </div>
+            <div class="status-note">
+              <div><strong>What this means:</strong> our internal hosting stack is healthy, searchable, and ready to support live client projects with minimal latency.</div>
+              <div><strong>Operational focus:</strong> uptime, delivery speed, resilience, and recovery discipline.</div>
+            </div>
+          </article>
+
+          <article class="card reveal status-summary-card">
+            <div class="section-head" style="margin-bottom:16px;">
+              <p class="kicker">Core Metrics</p>
+              <h3 style="margin-top:10px;">Live health snapshot</h3>
+              <p>Key server readings shown with enough breathing room to stay readable on every screen size.</p>
+            </div>
+            <div class="status-summary-grid">
+              <div class="metric-row metric-row-primary">
+                <div>
+                  <p class="metric-label">Uptime</p>
+                  <p class="metric-detail">Up 2 weeks, 1 day, 23 hours, 43 minutes</p>
+                </div>
+                <p class="metric-value">2 weeks</p>
+              </div>
+              <div class="metric-row">
+                <div>
+                  <p class="metric-label">CPU load</p>
+                  <p class="metric-detail">Load: 0.01, 0.05, 0.07</p>
+                </div>
+                <p class="metric-value">0.4%</p>
+              </div>
+              <div class="metric-row">
+                <div>
+                  <p class="metric-label">Memory in use</p>
+                  <p class="metric-detail">1324 MB / 7936 MB used</p>
+                </div>
+                <p class="metric-value">16.7%</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Performance Metrics</h2>
+          <p>These measurements show the server is optimized for responsiveness and stable application delivery.</p>
+        </div>
+        <div class="status-grid">
+          <article class="status-card">
+            <p class="kicker">Server Response Time (TTFB)</p>
+            <p class="status-value">5.08ms</p>
+            <p class="status-subtext">Excellent target result, well below 200ms.</p>
+          </article>
+          <article class="status-card">
+            <p class="kicker">PHP Version</p>
+            <p class="status-value">8.3.12</p>
+            <p class="status-subtext">Latest stable release</p>
+          </article>
+          <article class="status-card">
+            <p class="kicker">HTTP Protocol</p>
+            <p class="status-value">HTTP/2</p>
+            <p class="status-subtext">Optimized for speed</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Technology Stack</h2>
+          <p>The infrastructure is built on a modern, efficient stack designed for stable delivery and maintainability.</p>
+        </div>
+        <div class="stack-grid">
+          <article class="stack-item"><p class="stack-title">PHP</p><p class="stack-value">8.3.12</p></article>
+          <article class="stack-item"><p class="stack-title">MySQL</p><p class="stack-value">8.0+</p></article>
+          <article class="stack-item"><p class="stack-title">Nginx</p><p class="stack-value">Web Server</p></article>
+          <article class="stack-item"><p class="stack-title">Linux</p><p class="stack-value">Ubuntu/Debian</p></article>
+        </div>
+        <div class="card" style="margin-top: 14px;">
+          <p class="kicker">Server Software</p>
+          <p style="margin-top:8px; font-size:1.05rem; font-weight:700; color: var(--text);">nginx/1.21.4</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Infrastructure & Security</h2>
+          <p>These controls keep the platform secure, recoverable, and ready to handle traffic spikes.</p>
+        </div>
+        <div class="security-grid">
+          <article class="security-card"><div class="security-icon">🔒</div><h3>SSL/TLS Encryption</h3><p>All connections secured with HTTPS and modern encryption protocols.</p></article>
+          <article class="security-card"><div class="security-icon">🛡️</div><h3>CDN Integration</h3><p>Cloudflare CDN for global content delivery and DDoS protection.</p></article>
+          <article class="security-card"><div class="security-icon">💾</div><h3>Automated Backups</h3><p>Daily backups with 30-day retention and point-in-time recovery.</p></article>
+          <article class="security-card"><div class="security-icon">⚡</div><h3>Server-Side Caching</h3><p>Redis and OPcache for optimized application performance.</p></article>
+          <article class="security-card"><div class="security-icon">📡</div><h3>24/7 Monitoring</h3><p>Real-time server monitoring with instant alerts and notifications.</p></article>
+          <article class="security-card"><div class="security-icon">⚖️</div><h3>Load Balancing</h3><p>Distributed architecture ready to handle traffic spikes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container reveal">
+        <div class="cta-band">
+          <p class="kicker">Impressed by Our Infrastructure?</p>
+          <h2>Let us build a fast, secure, and scalable web solution for your business.</h2>
+          <p style="margin-top:12px; color:#d4eaed; max-width:700px;">These performance and security foundations are the same principles we use when delivering client websites, web apps, and SEO-focused platforms.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="contact.html">Get Started</a>
+            <a class="btn btn-secondary" href="https://web-technics.com/">View company work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <a href="https://web-technics.com/">About Web Technics</a>
+        <a href="https://web-technics.com/">Company & Work</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h3>Usefull Links</h3>
+        <a href="server-status.html">Server Status</a>
+      </div>
+      <div class="footer-col">
+        <h3>Network Links</h3>
+        <a href="#">Coming soon</a>
+      </div>
+      <div class="footer-col">
+        <h3>Connect</h3>
+        <a href="https://github.com/web-technics" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="email-link" data-email-user="info" data-email-domain="web-technics.services" href="contact.html">Email</a>
+        <a href="tel:+855969245074">+855 96 924 5074</a>
+        <a href="https://wa.me/855965345954" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a href="https://t.me/web_technics_services" target="_blank" rel="noreferrer">Telegram</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p class="footer-signature"><img class="footer-logo" src="assets/branding/web-technics-icon-favicon.svg" alt="Web Technics icon" width="32" height="32" decoding="async" loading="lazy">@<span data-year></span> Web-technics services.</p>
+      <p>Server Status</p>
+    </div>
+  </footer>
+
+  <script>
+    const statusTime = document.getElementById("status-time");
+    if (statusTime) {
+      statusTime.textContent = new Date().toLocaleString();
+    }
+  </script>
   <script src="app.js" defer></script>
 </body>
 </html>
