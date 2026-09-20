@@ -67,6 +67,7 @@ const siblingSites = [
  * The audit fails if any page still links to a moved path on this origin.
  */
 const movedRoutes = {
+  '/kampot-landing-page.html': 'https://web-technics.services/local-landing-page.html',
   '/web-design-cambodia.html': 'https://web-technics.com/web-design-cambodia.html',
   '/ecommerce-development-cambodia.html':
     'https://web-technics.com/ecommerce-development-cambodia.html',
@@ -106,19 +107,19 @@ const routes = [
     breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Capabilities' }],
   },
   {
-    path: '/kampot-landing-page.html',
-    file: 'kampot-landing-page.html',
-    title: 'Kampot Landing Page for Local Promotions | Web Technics',
+    path: '/local-landing-page.html',
+    file: 'local-landing-page.html',
+    title: 'Local Landing Page for Business Promotions | Web Technics',
     description:
-      'A conversion-focused Kampot landing page for an event, tour, property, promotion, or local service, with local search targeting and tracked contact actions.',
-    primaryKeyword: 'kampot landing page',
-    secondaryKeywords: ['kampot promotion website', 'local campaign landing page'],
-    ogTitle: 'Kampot Landing Page for Local Promotions | Web Technics',
+      'A conversion-focused local landing page for an event, tour, property, promotion, or service, with location-based search targeting and tracked contact actions.',
+    primaryKeyword: 'local landing page',
+    secondaryKeywords: ['local promotion website', 'local campaign landing page'],
+    ogTitle: 'Local Landing Page for Business Promotions | Web Technics',
     ogDescription:
       'One focused page, one conversion goal, local search targeting, and trackable customer actions.',
     changefreq: 'monthly',
     priority: 0.8,
-    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Kampot Landing Page' }],
+    breadcrumbs: [{ name: 'Home', url: '/' }, { name: 'Local Landing Page' }],
   },
   {
     path: '/portfolio.html',
