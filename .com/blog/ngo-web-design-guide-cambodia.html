@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building Accessible Web Platforms for Cambodian NGOs | Web Technics</title>
+  <meta name="description" content="A practical architectural guide for Cambodian nonprofits, civil society organizations, and international donors requiring transparent, WCAG-compliant web platforms.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://web-technics.com/blog/ngo-web-design-guide-cambodia.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Building Accessible Web Platforms for Cambodian NGOs">
+  <meta property="og:description" content="Technical guide for Cambodian nonprofits requiring donor transparency, low-bandwidth optimization, and WCAG 2.1 accessibility.">
+  <meta property="og:url" content="https://web-technics.com/blog/ngo-web-design-guide-cambodia.html">
+  <meta property="og:image" content="https://web-technics.com/assets/media/1545239351-15291c4a.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/branding/web-technics-icon-favicon.svg">
+
+  <!-- Schema.org BlogPosting & BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Building Accessible Web Platforms for Cambodian NGOs",
+    "description": "A technical and strategic guide for nonprofits in Cambodia aiming to meet donor transparency standards and reach beneficiaries on constrained mobile networks.",
+    "image": "https://web-technics.com/assets/media/1545239351-15291c4a.jpg",
+    "datePublished": "2026-09-18T09:00:00+07:00",
+    "dateModified": "2026-09-18T10:30:00+07:00",
+    "author": {
+      "@type": "Person",
+      "name": "Web Technics Engineering Team",
+      "jobTitle": "Principal Web Engineers",
+      "url": "https://web-technics.com/about.html"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Web Technics Cambodia",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://web-technics.com/assets/branding/web-technics-logo-horizontal-light.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://web-technics.com/blog/ngo-web-design-guide-cambodia.html"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://web-technics.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://web-technics.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "NGO Web Platform Guide" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="flag-strip" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-badge">WT</span>
+        <span>Web Technics <mark>KH</mark></span>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle Navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">Menu</button>
+      <nav class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Services</a>
+        <a href="../portfolio.html">Portfolio</a>
+        <a class="active" href="index.html">Insights</a>
+        <a href="../about.html">About</a>
+        <a class="nav-cta" href="../contact.html">Get in Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <article>
+      <header class="article-header">
+        <span class="eyebrow eyebrow-red">NGO Tech Architecture</span>
+        <h1 style="margin: 14px 0 16px;">Building Accessible Web Platforms for Cambodian NGOs</h1>
+        <div class="meta-info">
+          <span>By <strong>Web Technics Team</strong></span> • 
+          <span>Kampot, KH</span> • 
+          <span>Published Sep 18, 2026</span> • 
+          <span>⏱ 6 min read</span>
+        </div>
+      </header>
+
+      <div class="container article-content">
+        <p>Nonprofit initiatives and civil society organizations in Cambodia face a dual challenge online: meeting the strict compliance and reporting requirements of international grantmakers while maintaining fast, accessible websites for provincial beneficiaries who browse almost exclusively on mobile devices with variable network speeds.</p>
+
+        <h2>1. The Problem with Heavy CMS Setups in Cambodia</h2>
+        <p>Many NGO websites in Phnom Penh and Siem Reap run on bloated, unmaintained WordPress instances with dozens of unvetted plugins. In our audit of local nonprofit sites, common issues include:</p>
+        <ul>
+          <li>Page load times exceeding 8 seconds on 3G/4G provincial connections.</li>
+          <li>Vulnerability to database injection and spam exploits due to unpatched third-party plugins.</li>
+          <li>Disproportionate monthly server maintenance bills that divert funds away from actual program beneficiaries.</li>
+        </ul>
+
+        <h2>2. Adopting WCAG 2.1 Standards for International Trust</h2>
+        <p>International foundations and multilateral donors (such as the EU, USAID, or UN agencies) increasingly incorporate digital accessibility criteria into their funding governance. Adhering to <strong>WCAG 2.1 AA guidelines</strong> ensures:</p>
+        <ul>
+          <li><strong>Text Contrast:</strong> Legible reading for outdoor and high-glare environments.</li>
+          <li><strong>Keyboard & Screen Reader Navigability:</strong> Full accessibility for users with visual and motor disabilities.</li>
+          <li><strong>Khmer Unicode Compliance:</strong> Proper typographic scaling and line-height balance when rendering Khmer text alongside English variants.</li>
+        </ul>
+
+        <h2>3. The Static / Decoupled Architecture Advantage</h2>
+        <p>By shifting to static site generation (SSG) with automated GitHub deployments, organizations gain:</p>
+        <ol>
+          <li><strong>Immunity to CMS Vulnerabilities:</strong> Without an open MySQL database or active PHP backend, the attack surface drops to zero.</li>
+          <li><strong>Instant CDN Delivery:</strong> Pre-rendered HTML files are cached at edge servers closest to Cambodia, loading in under 400 milliseconds.</li>
+          <li><strong>Minimal Hosting Overhead:</strong> Static assets can be hosted cost-free or for nominal infrastructure fees, preserving donor capital.</li>
+        </ol>
+
+        <!-- Author Card -->
+        <div class="author-card">
+          <div class="author-avatar">WT</div>
+          <div>
+            <h4 style="margin-bottom: 4px;">Web Technics Engineering Team</h4>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin: 0;">Specialist developers based in Kampot, Cambodia. We build bespoke web platforms, SEO systems, and accessible software for local businesses and NGOs across Southeast Asia and Europe.</p>
+          </div>
+        </div>
+
+        <div class="cta-band" style="margin-top: 40px;">
+          <span class="kicker">Nonprofit Consultation</span>
+          <h3 style="margin-top: 8px;">Does your organization need a compliant digital upgrade?</h3>
+          <p style="margin-top: 8px;">We provide comprehensive technical reviews, accessibility audits, and affordable rebuild quotes for registered NGOs in Cambodia.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="../contact.html">Request NGO Technical Review</a>
+            <a class="btn btn-secondary" href="../ngo-web-design-cambodia.html">View NGO Services</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h3>Web Technics Cambodia</h3>
+        <p>Kampot, Cambodia</p>
+        <p>Accessible web architecture and engineering for local and international initiatives.</p>
+      </div>
+      <div class="footer-col">
+        <h3>Related Pages</h3>
+        <a href="../ngo-web-design-cambodia.html">NGO Solutions</a>
+        <a href="../portfolio.html">Delivered Projects</a>
+        <a href="index.html">All Insights</a>
+      </div>
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <a href="mailto:info@web-technics.services">info@web-technics.services</a>
+        <a href="https://wa.me/855965345954">WhatsApp Hotline</a>
+      </div>
+      <div class="footer-col">
+        <h3>Legal</h3>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../server-status.html">Server Status</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© 2026 Web Technics Services Ltd. Kampot, Cambodia.</p>
+      <p>Technical Knowledge Base</p>
+    </div>
+  </footer>
+</body>
+</html>
